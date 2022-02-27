@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sleep Tracker
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sleep Tracker</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-list>
+    <ion-list-header lines="full">
+      Overnight Sleep
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime display-format="MMM/DD/YY, HH:mm" placeholder="Start Time" 
+      [(ngModel)]='startTime' ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End Time</ion-label>
+      <ion-datetime display-format="MMM/DD/YY, HH:mm" placeholder="End Time" 
+      [(ngModel)]='endTime' ></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" expand="block" (click)="logEvent()">Log Overnight</ion-button>
+  </ion-list>
+  <ion-item-divider></ion-item-divider>
+
+  <ion-list>
+      <ion-list-header lines="full">
+        Sleepiness
+      </ion-list-header>
+
+      <ion-label>Degree of Sleepiness</ion-label>
+      <ion-item>
+      <ion-select [(ngModel)] = "degree">
+        <ion-select-option *ngFor="let sleep of sleepinessList; index as i" value={{i+1}}>{{i+1+" "+sleep}}</ion-select-option>
+      </ion-select>
+      </ion-item>
+
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-datetime display-format="MMM/DD/YY, HH:mm" placeholder="Start Time" 
+      [(ngModel)]='sleepinessTime' ></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" expand="block" (click)="sleepinessLog()">Log Sleepiness</ion-button>
+  </ion-list>
+
+
+</ion-content>
+
